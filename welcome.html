@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="welcome-page">
+    <audio id="bgm" autoplay loop>
+        <source src="normal.mpeg" type="audio/mpeg">
+    </audio>
+    <div class="welcome-box">
+        <div class="gold-heart"></div>
+        <h1>Welcome</h1>
+        <h2 id="userName">Mugesh</h2>
+        <p>It's Your day! <br> Let's make it legendary</p>
+        <button onclick="nextpage()">Let's Go..!</button>
+    </div>
+    <script>
+        let name = localStorage.getItem("birthdayName");
+        if(name){
+        document.getElementById("userName").innerHTML = Name.touppercase();
+        }
+        function nextpage(){
+            window.location.href = "cake.html";
+        }
+
+        /* music */
+
+        window.addEventListener("click",function(){
+            document.getElementById("bgm").play();
+        }, {once:true});
+
+
+
+
+    </script>
+</body>
+</html>

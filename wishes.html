@@ -1,0 +1,357 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Letter</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at center,
+    #5a2d0c,
+    #2a1307 60%,
+    #120804);
+
+    font-family:Georgia, serif;
+}
+
+/* Floating Hearts */
+.floating-heart{
+    position:absolute;
+    pointer-events:none;
+    animation:floatUp 6s linear forwards;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-150px);
+        opacity:0;
+    }
+}
+
+/* LETTER */
+.card{
+    position:relative;
+
+    width:90%;
+    max-width:650px;
+
+    background:#f5e6c8;
+
+    padding:45px;
+
+    box-shadow:
+    0 0 50px rgba(0,0,0,.6),
+    inset 0 0 60px rgba(139,69,19,.15);
+
+    animation:paperFloat 4s ease-in-out infinite;
+
+    /* Torn paper shape */
+    clip-path: polygon(
+    2% 4%,
+    8% 2%,
+    18% 4%,
+    28% 1%,
+    40% 3%,
+    52% 2%,
+    66% 4%,
+    78% 1%,
+    92% 3%,
+    98% 6%,
+    99% 18%,
+    97% 35%,
+    99% 52%,
+    96% 70%,
+    99% 88%,
+    95% 98%,
+    82% 96%,
+    68% 99%,
+    52% 97%,
+    36% 99%,
+    20% 96%,
+    8% 98%,
+    2% 94%,
+    1% 80%,
+    3% 65%,
+    1% 50%,
+    3% 35%,
+    1% 18%
+    );
+}
+
+@keyframes paperFloat{
+    0%,100%{
+        transform:translateY(0px) rotate(-1deg);
+    }
+    50%{
+        transform:translateY(-8px) rotate(1deg);
+    }
+}
+
+/* Burned Border */
+.card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(0,0,0,.85),
+    transparent 18%),
+
+    radial-gradient(circle at top right,
+    rgba(0,0,0,.85),
+    transparent 18%),
+
+    radial-gradient(circle at bottom left,
+    rgba(0,0,0,.85),
+    transparent 18%),
+
+    radial-gradient(circle at bottom right,
+    rgba(0,0,0,.85),
+    transparent 18%);
+
+    pointer-events:none;
+}
+
+/* Dark burnt inner edge */
+.card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    box-shadow:
+    inset 0 0 25px rgba(70,30,0,.7),
+    inset 0 0 50px rgba(0,0,0,.5);
+
+    pointer-events:none;
+}
+
+/* Wax Seal */
+.seal{
+    position:absolute;
+    top:-18px;
+    right:35px;
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    #d10000,
+    #780000);
+
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:28px;
+
+    box-shadow:
+    0 0 20px rgba(0,0,0,.5);
+}
+
+h1{
+    text-align:center;
+    color:#5b2c06;
+    margin-bottom:25px;
+    font-size:32px;
+    letter-spacing:2px;
+}
+
+p{
+    color:#3d2b1f;
+    line-height:2.1;
+    font-size:18px;
+    text-align:left;
+}
+
+.signature{
+    margin-top:25px;
+    text-align:right;
+    color:#5b2c06;
+    font-size:22px;
+    font-style:italic;
+}
+
+.btn-container{
+    text-align:center;
+    margin-top:25px;
+}
+
+button{
+    padding:12px 28px;
+
+    background:#8b5a2b;
+    color:white;
+
+    border:none;
+    border-radius:8px;
+
+    font-size:15px;
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+    background:#6f4518;
+    transform:scale(1.05);
+}
+
+/* Ember Particles */
+.ember{
+    position:absolute;
+    width:4px;
+    height:4px;
+
+    background:orange;
+    border-radius:50%;
+
+    box-shadow:
+    0 0 10px orange,
+    0 0 20px red;
+
+    pointer-events:none;
+
+    animation:emberFly 4s linear forwards;
+}
+
+@keyframes emberFly{
+    from{
+        opacity:1;
+        transform:translateY(0);
+    }
+    to{
+        opacity:0;
+        transform:
+        translateY(-180px)
+        translateX(40px);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+    <source src="bday.mpeg" type="audio/mpeg">
+</audio>
+
+<div class="card">
+
+    <div class="seal">💌</div>
+
+    <h1>Birthday Wishes</h1>
+
+    <p>
+        Dear Paithiyakara,
+
+        <br><br>
+
+        Unaku naraya dreams and aasaigal iruku...
+        Adhu ellame seekiram niraiveranum nu naan wish panren.
+
+        <br><br>
+
+        Nee aasapadura ella vishayathulayum success
+        kidaikanum. Un life la happiness, peace,
+        nalla moments neraya irukanum.
+
+        <br><br>
+
+        Indha 25th birthday unaku pudhu opportunities,
+        unforgettable memories, periya achievements
+        kondu varanum.
+
+        <br><br>
+
+        Nee virumbura ella vishayangalum nadakanum...
+        illa illa, kandipa nadakum.
+
+        <br><br>
+
+        Happy Birthday Once Again 🎂❤️
+    </p>
+
+    <div class="signature">
+        With Love 💖
+    </div>
+
+    <div class="btn-container">
+        <a href="memorable.html">
+            <button>Next ➜</button>
+        </a>
+    </div>
+
+</div>
+
+<script>
+
+/* Hearts */
+function createHeart(){
+    const heart=document.createElement("div");
+
+    heart.className="floating-heart";
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(15+Math.random()*20)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,800);
+
+/* Burning Embers */
+function createEmber(){
+    const ember=document.createElement("div");
+
+    ember.className="ember";
+
+    ember.style.left=
+    (window.innerWidth/2 +
+    (Math.random()*600-300))
+    +"px";
+
+    ember.style.bottom="0px";
+
+    document.body.appendChild(ember);
+
+    setTimeout(()=>{
+        ember.remove();
+    },4000);
+}
+
+setInterval(createEmber,250);
+
+</script>
+
+</body>
+</html>

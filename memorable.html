@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#140024,#30004d,#5b00a5);
+  font-family:Arial,sans-serif;
+  overflow:hidden;
+}
+
+h1{
+  color:rgb(194, 75, 101);
+  margin-bottom:25px;
+  text-shadow:0 0 10px rgba(255,255,255,0.4);
+}
+
+.slider{
+  position:relative;
+  width:320px;
+  height:420px;
+}
+
+.slider img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 3px solid rgba(255,255,255,0.5);
+  box-shadow: 0 0 25px rgba(255,255,255,0.4);
+}
+
+button{
+  margin-top:30px;
+  padding:12px 25px;
+  border:none;
+  border-radius:10px;
+  background:#8b5cf6;
+  color:white;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.close-tab{
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: black;
+  color: whitesmoke;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 12px;
+  z-index: 10;
+}
+.exit{
+  display: none;
+  text-align: center;
+  margin-top: 100px;
+  font-size: 20px;
+  color: whitesmoke;
+}
+.heart{
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 20px;
+    height: 20px;
+    background: #ffd700;
+    transform: rotate(-45deg);
+    animation: blinkheart 1.2s infinite;
+    box-shadow: 0 0 10px #ffd700,0 0 20px #ffd700,0 0 35px #ffc300;
+}
+.heart::before,.heart::after{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ffd700;
+    border-radius: 50%;
+}
+.heart::before{
+    top: -10px;
+    left: 0;
+}
+.heart::after{
+    top:0;
+    left: 10px;
+}
+@keyframes blinkheart{
+    0%{
+        opacity: 0.5;
+        transform: rotate(-45deg) scale(1);
+    }
+    50%{
+        opacity: 1;
+        transform: rotate(-45deg) scale(1.25);
+    }
+    100%{
+        opacity: 0.5;
+        transform: rotate(-45deg) scale(1);
+    }}
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="sillu.mpeg" type="audio/mpeg">
+</audio>
+<div class="gold-heart"></div>
+<h1>Our Memorable Moments</h1>
+
+<div class="slider" id="slidebox">
+  <div class="close-tab" onclick="Closepage()">Close the cringe</div>
+    <img id="slide" src="img1.jpeg">
+  </div>
+  <div class="exit" id="exitbox">I know this is a bit cringe....
+    <br>but if it made you smile even for a second,
+    <br>that's enough for me..
+    <br><br><br>Unnoda journey la even na evalo days irupanula theriyathu 
+    <br>but one day this cringe will remain me la that's enough for me (music ah podu tan tan tan...)
+    <br> and one more thing if there's anything heavy on your mind don't keep it inside.
+    <br>share it with someone you trust purium nenaikura maybe un amma ila un sister ila 
+    <br>someone close to you.don't carry it alone paithiyakara.<br><br>
+    Avalodhan Bye...Bye paithiyakara...!
+
+    
+  </div>
+
+
+<script>
+const images =  [
+  "img1.jpeg","img2.jpeg","img3.jpeg","img4.jpeg",
+  "img5.jpeg","img6.jpeg","img7.jpeg","img8.jpeg",
+];
+let current = 0;
+setInterval(function(){
+  current++;
+  if(current >= images.length){
+    current = 0;
+  }
+  document.getElementById("slide").src = images[current];
+}, 3000);
+function Closepage(){
+  document.getElementById("slidebox").style.display = "none";
+  document.getElementById("exitbox").style.display="block";
+}
+</script>
+</body>
+</html>

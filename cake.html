@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cake Cutting</title>
+
+<!-- 📱 Mobile responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  background:linear-gradient(135deg,#140024,#30004d,#5b00a5);
+  font-family:Arial,sans-serif;
+  overflow:hidden;
+}
+
+/* Cake */
+.cake{
+  position:relative;
+  width:220px;
+  cursor:pointer;
+  margin-top: 80px;
+}
+.cake-text{
+  margin-top: 25px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  animation: blink 1.5s infinite;
+}
+@keyframes blink{
+  0%,100%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0.5;
+  }
+}
+
+.layer{
+  height:55px;
+  border-radius:12px;
+  margin:4px auto;
+  transition:1s;
+}
+
+.top{background:#ff6f91;width:140px;}
+.middle{background:#ff9671;width:180px;}
+.bottom{background:#ffc75f;width:220px;}
+
+/*candle*/
+.candle{
+    position: absolute;
+    width: 12px;
+    height: 45px;
+    background: #fff;
+    top: -55px;
+    left: 50%;
+    transform: translatex(-50%);
+    border-radius: 5px;
+}
+.flame{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: gold;
+    border-radius: 50%;
+    top: -18px;
+    left: 50%;
+    transform: translatex(-50%) scale(1.2);
+    animation: flicker .4s infinite alternate;
+}
+@keyframes flicker{
+    from{transform:translateX(-50%) scale(1)};
+    to{transform: translateX(-50) scale(1.2);}
+}
+/* Cutting effect */
+
+.cut .top{
+  transform:translateX(-50px) rotate(-8deg);
+}
+
+.cut .middle{
+  transform:translateX(50px) rotate(8deg);
+}
+.message{
+    color: white;
+    margin-bottom: 30px;
+    font-size: 24px;
+    opacity: 0;
+    transition: 1s;
+}
+.show{
+    opacity: 1;
+}
+.heart{
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 20px;
+    height: 20px;
+    background: #ffd700;
+    transform: rotate(-45deg);
+    animation: blinkheart 1.2s infinite;
+    box-shadow: 0 0 10px #ffd700,0 0 20px #ffd700,0 0 35px #ffc300;
+}
+.heart::before,.heart::after{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ffd700;
+    border-radius: 50%;
+}
+.heart::before{
+    top: -10px;
+    left: 0;
+}
+.heart::after{
+    top:0;
+    left: 10px;
+}
+@keyframes blinkheart{
+    0%{
+        opacity: 0.5;
+        transform: rotate(-45deg) scale(1);
+    }
+    50%{
+        opacity: 1;
+        transform: rotate(-45deg) scale(1.25);
+    }
+    100%{
+        opacity: 0.5;
+        transform: rotate(-45deg) scale(1);
+    }}
+   
+</style>
+</head>
+
+<body>
+
+<!-- 🎶 Music -->
+<audio id="bgm" autoplay loop>
+  <source src="bday.mpeg" type="audio/mpeg">
+</audio>
+<div class="message" id="msg">Happy Birthday Eruma</div>
+<div class="gold-heart"></div>
+<!-- 🎂 Cake -->
+<div class="cake" id="cake" onclick="cutCake()">
+
+  <div class="candle">
+    <div class="flame"></div>
+  </div>
+
+  <div class="layer top"></div>
+  <div class="layer middle"></div>
+  <div class="layer bottom"></div>
+
+</div>
+<p class="cake-text">Click the cake</p>
+
+<script>
+function cutCake(){
+    alert("cake clicked")
+    document.querySelector(".top").style.transform = "translateX(-50px) rotate(-8deg)";
+    document.querySelector(".middle").style.transform = "translateX(50px) rotate(8deg)";
+    document.getElementById("msg").style.opacity = "1";
+
+    setTimeout(function(){
+        window.location.href="wishes.html"
+    },3000);
+}
+
+</script>
+
+</body>
+</html>
